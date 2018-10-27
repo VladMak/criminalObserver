@@ -1,16 +1,22 @@
 package criminal
 
+import (
+	"fmt"
+)
+
 type Thief struct {
 	Name string
 	State bool
 }
 
-func (thief Thief) Update(state bool) string {
+func (thief Thief) Update(state bool) bool {
 	thief.State = state
 	if thief.State {
-		return "Готов, Иду воровать"
+		fmt.Println(thief.Name, ": Готов, Иду воровать")
+		return true
 	} else {
-		return "Не готов. Не хочу воровать"
+		fmt.Println(thief.Name, ": Не готов. Не хочу воровать")
+		return true
 	}
 }
 

@@ -21,7 +21,14 @@ func (boss *Boss) Unsubsribe(name string) {
 func (boss *Boss) NotifySubscribers() {
 	fmt.Println(boss.Name, ": Идем воровать")
 	for _, v := range boss.Subscribers {
-		fmt.Println(v.GetName(), ":",v.Update(true))
+		var bol bool
+		if boss.MainState{
+			bol = v.Update(true)
+		}
+		if !bol{
+			break
+		}
+		
 	}
 }
 
@@ -30,13 +37,15 @@ func (boss *Boss) MainBusinessLogic() {
 	boss.NotifySubscribers()
 }
 
-func (boss Boss) Update(state bool) string{
+func (boss Boss) Update(state bool) bool{
 	boss.MainState = state
 
 	if boss.MainState {
-		return "Готов, Несу"
+		fmt.Println(boss.Name, ": Готов, Несу")
+		return true
 	} else {
-		return "Бежим"
+		fmt.Println(boss.Name, ": Бежим")
+		return false
 	}
 }
 

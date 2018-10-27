@@ -1,16 +1,22 @@
 package criminal
 
+import (
+	"fmt"
+)
+
 type Driver struct {
 	Name string
 	State bool
 }
 
-func (driver Driver) Update(state bool) string {
+func (driver Driver) Update(state bool) bool {
 	driver.State = state
 	if driver.State {
-		return "Готов, Еду"
+		fmt.Println(driver.Name, ": Готов, Еду")
+		return true
 	} else {
-		return "Не готов. Машина сломалась"
+		fmt.Println(driver.Name, ": Не готов. Машина сломалась")
+		return true
 	}
 }
 

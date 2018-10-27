@@ -11,18 +11,19 @@ type Porter struct {
 	PoliceMan bool
 }
 
-func (porter Porter) Update(state bool) string{
+func (porter Porter) Update(state bool) bool{
 	porter.State = state
-	porter.PoliceMan = true
 	if porter.PoliceMan {
 		porter.MainBusinessLogic()
-		return ""
+		return false
 	}
 
 	if porter.State {
-		return "Готов, Несу"
+		fmt.Println(porter.Name, ": Готов, Несу")
+		return true
 	} else {
-		return "Не готов. Руки болят, не могу ничего нести"
+		fmt.Println(porter.Name, ": Не готов. Руки болят, не могу ничего нести")
+		return true
 	}
 }
 
@@ -45,7 +46,7 @@ func (porter *Porter) Unsubscribe(name string) {
 func (porter *Porter) NotifySubscribers() {
 	fmt.Println(porter.Name, ": Вы все аррестованы")
 	for _, v := range porter.Subscribers {
-		fmt.Println(v.GetName(), ":",v.Update(false))
+		v.Update(false)
 	}
 }
 
