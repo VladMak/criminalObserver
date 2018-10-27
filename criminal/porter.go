@@ -5,13 +5,13 @@ import (
 )
 
 type Porter struct {
-	Name string
-	State bool
+	Name        string
+	State       bool
 	Subscribers map[string]Criminal
-	PoliceMan bool
+	PoliceMan   bool
 }
 
-func (porter Porter) Update(state bool) bool{
+func (porter Porter) Update(state bool) bool {
 	porter.State = state
 	if porter.PoliceMan {
 		porter.MainBusinessLogic()
@@ -27,7 +27,7 @@ func (porter Porter) Update(state bool) bool{
 	}
 }
 
-func (porter Porter) GetName() string{
+func (porter Porter) GetName() string {
 	return porter.Name
 }
 

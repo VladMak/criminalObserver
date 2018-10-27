@@ -5,7 +5,7 @@ import (
 )
 
 type Thief struct {
-	Name string
+	Name  string
 	State bool
 }
 
@@ -20,6 +20,6 @@ func (thief Thief) Update(state bool) bool {
 	}
 }
 
-func (thief Thief) GetName() string{
+func (thief Thief) GetName() string {
 	return thief.Name
 }

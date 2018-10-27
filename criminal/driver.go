@@ -5,7 +5,7 @@ import (
 )
 
 type Driver struct {
-	Name string
+	Name  string
 	State bool
 }
 
@@ -20,6 +20,6 @@ func (driver Driver) Update(state bool) bool {
 	}
 }
 
-func (driver Driver) GetName() string{
+func (driver Driver) GetName() string {
 	return driver.Name
 }

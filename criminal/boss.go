@@ -1,13 +1,13 @@
 package criminal
 
-import(
+import (
 	"fmt"
 )
 
 type Boss struct {
-	Name string
+	Name        string
 	Subscribers map[string]Criminal
-	MainState bool
+	MainState   bool
 }
 
 func (boss *Boss) Subscribe(name string, criminal Criminal) {
@@ -22,13 +22,13 @@ func (boss *Boss) NotifySubscribers() {
 	fmt.Println(boss.Name, ": Идем воровать")
 	for _, v := range boss.Subscribers {
 		var bol bool
-		if boss.MainState{
+		if boss.MainState {
 			bol = v.Update(true)
 		}
-		if !bol{
+		if !bol {
 			break
 		}
-		
+
 	}
 }
 
@@ -37,7 +37,7 @@ func (boss *Boss) MainBusinessLogic() {
 	boss.NotifySubscribers()
 }
 
-func (boss Boss) Update(state bool) bool{
+func (boss Boss) Update(state bool) bool {
 	boss.MainState = state
 
 	if boss.MainState {
@@ -49,6 +49,6 @@ func (boss Boss) Update(state bool) bool{
 	}
 }
 
-func (boss Boss) GetName() string{
+func (boss Boss) GetName() string {
 	return boss.Name
 }

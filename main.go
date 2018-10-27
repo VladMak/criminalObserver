@@ -14,9 +14,9 @@ func main() {
 
 	porter := criminal.Porter{Name: "Porter", Subscribers: make(map[string]criminal.Criminal)}
 
-	if input == "y"{
+	if input == "y" {
 		porter.PoliceMan = true
-	}else{
+	} else {
 		porter.PoliceMan = false
 	}
 
